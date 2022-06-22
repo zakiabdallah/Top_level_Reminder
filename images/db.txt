@@ -1,0 +1,125 @@
+--Section 
+01 ANIMAUX VIVANTS ET PRODUITS DU REGNE ANIMAL
+02 PRODUITS DU REGNE VEGETAL
+03 GRAISSES ET HUILES ANIMALES, VEGETALES OU D�ORIGINE MICROBIENNE ET PRODUITS DE LEUR DISSOCIATION, GRAISSES ALIMENTAIRES ELABOREES, CIRES D'ORIGINE ANIMALE OU VEGETALE.
+04 PRODUITS DES INDUSTRIES ALIMENTAIRES, BOISSONS, LIQUIDES ALCOOLIQUES ET VINAIGRES, TABACS ET SUCCEDANES DE TABAC FABRIQUES, PRODUITS CONTENANT OU NON DE LA NICOTINE, DESTINES A UNE INHALATION SANS COMBUSTION, AUTRES PRODUITS, CONTENANT DE LA NICOTINE DESTINES A L�ABSORPTION DE LA NICOTINE DANS LE CORPS HUMAIN.
+05 PRODUITS MINERAUX
+06 PRODUITS DES INDUSTRIES CHIMIQUES OU DES INDUSTRIES CONNEXES
+07 MATIERES PLASTIQUES ET OUVRAGES EN CES MATIERES, CAOUTCHOUC ET OUVRAGES EN CAOUTCHOUC
+08 PEAUX, CUIRS, PELLETERIES ET OUVRAGES EN CES MATIERES,  ARTICLES DE BOURRELLERIE OU DE SELLERIE, ARTICLES DE VOYAGE, SACS A MAIN ET CONTENANTS SIMILAIRES, OUVRAGES EN BOYAUX
+09 BOIS, CHARBON DE BOIS ET OUVRAGES EN BOIS, LIEGE ET OUVRAGES EN LIEGE,     OUVRAGES DE SPARTERIE OU DE VANNERIE
+10 PATE DE BOIS OU D'AUTRES MATIERES FIBREUSES CELLULOSIQUES, PAPIER OU CARTON A RECYCLER (DECHET ET REBUTS ), PAPIER ET SES APPLICATIONS
+11 MATIERES TEXTILES ET OUVRAGES EN CES MATIERES
+12 CHAUSSURES, COIFFURES, PARAPLUIES, PARASOLS, CANNES, FOUETS, CRAVACHES ET LEURS PARTIES, PLUMES APPRETEES ET ARTICLES EN PLUMES, FLEURS ARTIFICIELLES, OUVRAGES EN CHEVEUX
+13 OUVRAGES EN PIERRES, PLATRE, CIMENT, AMIANTE, MICA OU MATIERES ANALOGUES,  PRODUITS CERAMIQUES, VERRE ET OUVRAGES EN VERRE
+14 PERLES FINES OU DE CULTURE, PIERRES GEMMES OU SIMILAIRES, METAUX PRECIEUX, PLAQUES OU DOUBLES DE METAUX PRECIEUX ET OUVRAGES EN CES MATIERES, BIJOUTERIE DE FANTAISIE, MONNAIES
+15 METAUX COMMUNS ET OUVRAGES EN CES METAUX
+16 MACHINES ET APPAREILS, MATERIEL ELECTRIQUE ET LEURS PARTIES, APPAREILS     D'ENREGISTREMENT OU DE REPRODUCTION DU SON, APPAREILS D'ENREGISTREMENT OU DE REPRODUCTION DES IMAGES ET DU SON EN TELEVISION, ET PARTIES ET ACCESSOIRES DE CES APPAREILS
+17 MATERIEL DE TRANSPORT
+18 INSTRUMENTS ET APPAREILS D'OPTIQUE, DE PHOTOGRAPHIE OU DE CINEMATOGRAPHIE, DE MESURE, DE CONTROLE OU DE PRECISION, INSTRUMENTS ET APPAREILS MEDICO-CHIRURGICAUX, HORLOGERIE, INSTRUMENTS DE MUSIQUE, PARTIES ET ACCESSOIRES DE CES INSTRUMENTS OU APPAREILS
+19 ARMES, MUNITIONS ET LEURS PARTIES ET ACCESSOIRES
+20 MARCHANDISES ET PRODUITS DIVERS
+21 OBJETS D'ART, DE COLLECTION OU D'ANTIQUITE
+
+
+--Section 01 :
+Chapitre:
+01	Animaux vivants
+02	Viandes et abats comestibles
+03	Poissons et crustaces, mollusques et autres invertebres aquatiques
+04	Laits et produits de la laiterie, oeufs d'oiseaux, miel naturel, produits comestibles d'origine animale, non denommes ni compris ailleurs
+05	Autres produits d'origine animale, non denommes ni compris ailleurs
+
+Chapitre 01:
+01	Chevaux, anes, mulets et bardots, vivants.
+02	Animaux vivants de l'espece bovine
+03	Animaux vivants de l'espece porcine
+04	Animaux vivants des especes ovine ou caprine
+05	Coqs, poules, canards, oies, dindons, dindes et pintades, vivants, des especes domestiques
+06	Autres animaux vivants.
+Chapitre 02
+01	Viandes des animaux de l'espece bovine, fra�ches ou refrigerees.
+02	Viandes des animaux de l'espece bovine, congelees.
+03	Viandes des animaux de l'espece porcine, fra�ches, refrigerees ou congelees.
+04	Viandes des animaux des especes ovine ou caprine, fra�ches, refrigerees ou congelees.
+05	Viandes des animaux des especes chevaline, asine ou mulassiere, fra�ches, refrigerees ou congelees :
+06	Abats comestibles des animaux des especes bovine, porcine, ovine, caprine, chevaline asine ou mulassiere, frais, refrigeres ou congeles
+07	Viandes et abats comestibles, frais, refrigeres ou congeles, des volailles du N 01 05.
+08	Autres viandes et abats comestibles, frais, refrigeres ou congeles
+09	Lard sans parties maigres, graisse de porc et graisse de volailles non fondues ni autrement extraites, frais, refrigeres, congeles, sales ou en saumure, seches ou fumes :
+10	Viandes et abats comestibles, sales ou en saumure, seches ou fumes , farines et poudres, comestibles, de viandes ou d'abats
+Chapitre 03
+01	Poissons vivants.
+02	Poissons frais ou refrigeres, a l'exception des filets de poissons et autre chair de poissons du N 03 04
+03	Poissons congeles, a l'exception des filets de poissons et autre chair de poissons du N 03 04.
+04	Filets de poissons et autre chair de poissons (meme hachee), frais, refrigeres ou congeles.
+05	Poissons s�ch�s, sal�s ou en saumure, poissons fum�s, m�me cuits avant ou pendant le fumage
+06	Crustac�s, m�me d�cortiqu�s, vivants, frais, r�frig�r�s, congel�s, s�ch�s, sal�s ou en saumure, crustac�s, m�me d�cortiqu�s, fum�s, m�me cuits avant ou pendant le fumage, crustac�s non d�cortiqu�s, cuits � l�eau ou � la vapeur, m�me r�frig�r�s, congel�s, s�ch�s, sal�s ou en saumure.
+07	Mollusques, m�me s�par�s de leur coquille, vivants, frais, r�frig�r�s, congel�s, s�ch�s, sal�s ou en saumure, mollusques, m�me d�cortiqu�s, fum�s, m�me cuits avant ou pendant le fumage.
+08	Invert�br�s aquatiques autres que les crustac�s et mollusques, vivants, frais, r�frig�r�s, congel�s, s�ch�s, sal�s ou en saumure, invert�br�s aquatiques autres que les crustac�s et mollusques, fum�s, m�me cuits avant ou pendant le fumage.
+09	Farines, poudres et agglom�r�s sous forme de pellets de poisson, crustac�s, mollusques et autres invert�br�s aquatiques, propres � l�alimentation humaine.
+Chapitre 04
+01	Lait et creme de lait, non concentres ni additionnes de sucre ou d'autres edulcorants.
+02	Lait et creme de lait, concentres ou additionnes de sucre ou d'autres edulcorants.
+03	Yoghourt, babeurre, lait et cr�me caill�s, k�phir et autres laits et cr�mes ferment�s ou acidifi�s, m�me concentr�s ou additionn�s de sucre ou d'autres �dulcorants ou aromatis�s ou additionn�s de fruits ou de cacao.
+04	Lactoserum, meme concentre ou additionne de sucre ou d'autres edulcorants, produits consistant en composants naturels du lait, meme additionnes de sucre ou d'autres edulcorants, non denommes ni compris ailleurs.
+05	Beurre et autres matieres grasses provenant du lait, pates a tartiner laitieres.
+06	Fromages et caillebotte.
+07	oeufs d'oiseaux, en coquilles, frais, conserves ou cuits.
+08	Oeufs d'oiseaux, depourvus de leurs coquilles, et jaunes d'oeufs, frais, seches, cuits a l'eau ou la vapeur, moules, congeles ou autrement conserves, meme additionnes de sucre ou d'autres edulcorants.
+09	Miel naturel
+10	Insectes et autres produits comestibles d�origine animale, non d�nomm�s ni compris ailleurs.
+Chapitre 05
+01	Cheveux bruts, meme laves ou degraisses, dechets de cheveux
+02	Soies de porc ou de sanglier, poils de blaireau et autres poils pour la brosserie, dechets de ces soies ou poils.
+04	Boyaux, vessies et estomacs d'animaux, entiers ou en morceaux, autres que ceux de poissons, a l'etat frais, refrigere, congele, sale ou en saumure, seche ou fume
+05	Peaux et autres parties d'oiseaux revetues de leurs plumes ou de leur duvet, plumes et parties de plumes (meme rognees), duvet, bruts ou simplement nettoyes, desinfectes ou traites en vue de leur conservation, poudres et dechets de plumes ou de parties de plumes
+06	Os et cornillons, bruts, degraisses, simplement prepares (mais non decoupes en forme), acidules ou degelatines, poudres et dechets de ces matieres.
+07	Ivoire, ecaille de tortue, fanons (y compris les barbes) de baleine ou d'autres mammiferes marins, cornes, bois, sabots, ongles, griffes et becs, bruts ou simplement prepares, mais non decoupes en forme, poudres et dechets de ces matieres.
+08	Corail et matieres similaires, bruts ou simplement prepares, mais non autrement travailles, coquilles et carapaces de mollusques,de crustaces ou d'echinodermes et os de seiches, bruts ou simplement prepares, mais non decoupes en forme, leurs poudres et leurs dechets.
+10	Ambre gris, castoreum, civette et musc, cantharides, bile, meme sechee, glandes et autres substances d'origine animale utilisees pour la preparation de produits pharmaceutiques, fra�ches, refrigerees, congelees ou autrement conservees de fa�on provisoire.
+11	Produits d'origine animale, non denommes ni compris ailleurs, animaux morts des Chapitres 1 ou 3, impropres a l'alimentation humaine.
+
+--Section 02 :
+
+--Section 03 :
+
+--Section 04 :
+
+--Section 05 :
+
+--Section 06 :
+
+--Section 07 :
+
+--Section 08 :
+
+--Section 09 :
+
+--Section 10 :
+
+--Section 11 :
+
+--Section 12 :
+
+--Section 13 :
+
+--Section 14 :
+
+--Section 15 :
+
+--Section 16 :
+
+--Section 17 :
+
+--Section 18 :
+
+--Section 19 :
+
+--Section 20 :
+
+--Section 21 :
+
+
+
+
