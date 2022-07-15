@@ -5,9 +5,9 @@ import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
-import 'package:tlr/Pages/Home.dart';
+import 'package:tlr/Pages/home.dart';
 import 'package:tlr/Pages/account.dart';
-import 'package:tlr/Pages/category.dart';
+import 'package:tlr/Pages/test.dart';
 import 'package:tlr/Pages/product.dart';
 import 'package:tlr/Pages/statstique.dart';
 import 'package:tlr/db/Vargloba.dart';
@@ -27,7 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final _pageOptions = [
     category(cat),
-    product(pro),
+    ProductSFW(pro: pro),
     Home(),
     statstique(),
     account()
@@ -95,6 +95,12 @@ class _MyHomePageState extends State<MyHomePage> {
     print("2");
     try {
       cat = await DatabaseTLR.inst.readallCategory();
+      setState(() => CatData = true);
+    } catch (e) {
+      setState(() => CatData = false);
+    }
+    try {
+      your_style = await DatabaseTLR.inst.readStyle(auth!.id!);
       setState(() => CatData = true);
     } catch (e) {
       setState(() => CatData = false);

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tlr/Pages/Dashbord.dart';
 import 'package:tlr/Pages/Register.dart';
+import 'package:tlr/db/Vargloba.dart';
 import 'package:tlr/db/database.dart';
 
 class authscreen extends StatelessWidget {
@@ -11,10 +12,10 @@ class authscreen extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            decoration: BoxDecoration(color: Colors.white),
+            decoration: const BoxDecoration(color: Colors.white),
           ),
           SingleChildScrollView(
-            child: Container(
+            child: SizedBox(
               height: deviceSize.height,
               width: deviceSize.width,
               child: Column(
@@ -27,8 +28,8 @@ class authscreen extends StatelessWidget {
                     ),
                   ),
                   Flexible(
-                    child: AuthCard(),
                     flex: deviceSize.width > 600 ? 2 : 1,
+                    child: AuthCard(),
                   )
                 ],
               ),
@@ -41,7 +42,7 @@ class authscreen extends StatelessWidget {
 }
 
 class Lang extends StatefulWidget {
-  Lang({Key? key}) : super(key: key);
+  const Lang({Key? key}) : super(key: key);
 
   @override
   State<Lang> createState() => _LangState();
@@ -54,9 +55,9 @@ class _LangState extends State<Lang> {
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
         value: dropdownValue,
-        hint: Text("Category"),
+        hint: const Text("Category"),
         decoration: const InputDecoration(
-          icon: const Icon(Icons.category_outlined),
+          icon: Icon(Icons.category_outlined),
         ),
         icon: const Icon(Icons.arrow_drop_down_sharp),
         elevation: 16,
@@ -76,7 +77,8 @@ class _LangState extends State<Lang> {
                 widthFactor: 1,
                 child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: Text(value, style: TextStyle(color: Colors.black))),
+                    child: Text(value,
+                        style: const TextStyle(color: Colors.black))),
               ));
         }).toList());
   }
@@ -113,10 +115,10 @@ class _AuthCardState extends State<AuthCard> {
       ),
       elevation: 8.0,
       child: AnimatedContainer(
-        duration: Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 300),
         curve: Curves.easeIn,
         width: deviceSize.width * 0.75,
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Form(
           key: _formKeyLogin,
           child: SingleChildScrollView(
@@ -140,8 +142,8 @@ class _AuthCardState extends State<AuthCard> {
                   keyboardType: TextInputType.text,
                   obscureText: !passwordVisible,
                   decoration: InputDecoration(
-                    label: Text('Password'),
-                    icon: Icon(Icons.security, color: Colors.blueAccent),
+                    label: const Text('Password'),
+                    icon: const Icon(Icons.security, color: Colors.blueAccent),
                     suffixIcon: IconButton(
                       icon: Icon(
                         passwordVisible
@@ -164,19 +166,14 @@ class _AuthCardState extends State<AuthCard> {
                     return null;
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 RaisedButton(
-                  child: Text(
-                    'log in'.toUpperCase(),
-                    style: TextStyle(color: Colors.white),
-                  ),
                   onPressed: () async {
                     try {
-                      await DatabaseTLR.inst
+                      auth = await DatabaseTLR.inst
                           .readuser(UserController.text, passController.text);
-
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
                           builder: (context) => const MyHomePage()));
                     } catch (e) {
@@ -193,7 +190,7 @@ class _AuthCardState extends State<AuthCard> {
                                     onPressed: () {
                                       Navigator.of(context).pop();
                                     },
-                                    child: Text("Ok")),
+                                    child: const Text("Ok")),
                               ],
                             );
                           });
@@ -202,35 +199,42 @@ class _AuthCardState extends State<AuthCard> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 8),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 8),
                   color: Theme.of(context).primaryColor,
+                  child: Text(
+                    'log in'.toUpperCase(),
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       TextButton(
-                        child: Text(
+                        child: const Text(
                           "Sign up",
                           style: TextStyle(fontSize: 12),
                         ),
                         onPressed: () {
-                          String? role_C;
+                          String? roleC;
                           showDialog(
                               context: context,
                               builder: (BuildContext context) {
                                 return AlertDialog(
-                                  title: Text(
+                                  title: const Text(
                                     "Choose Type of your account:\n-Simple client : it's for small business\n-.....:.......\n-Organization:it's for producer ",
-                                    style: TextStyle(color: Colors.blue),
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500),
                                   ),
                                   content: SingleChildScrollView(
                                       child: Form(
                                     key: _formKey,
                                     child: DropdownButtonFormField<String>(
-                                        value: role_C,
+                                        value: roleC,
                                         decoration: const InputDecoration(
-                                          icon: const Icon(
-                                              Icons.category_outlined),
+                                          icon: Icon(Icons.accessibility_new),
                                           hintText: 'Account Type',
                                         ),
                                         icon: const Icon(
@@ -240,7 +244,7 @@ class _AuthCardState extends State<AuthCard> {
                                             const TextStyle(color: Colors.blue),
                                         onChanged: (String? newValue) {
                                           setState(() {
-                                            role_C = newValue!;
+                                            roleC = newValue!;
                                           });
                                         },
                                         validator: (value) => value == null
@@ -261,7 +265,7 @@ class _AuthCardState extends State<AuthCard> {
                                                             .symmetric(
                                                         horizontal: 12),
                                                     child: Text(value,
-                                                        style: TextStyle(
+                                                        style: const TextStyle(
                                                             color:
                                                                 Colors.black))),
                                               ));
@@ -277,11 +281,10 @@ class _AuthCardState extends State<AuthCard> {
                                                     MaterialPageRoute(
                                                         builder: (context) =>
                                                             Register(
-                                                                role:
-                                                                    role_C!)));
+                                                                role: roleC!)));
                                           }
                                         },
-                                        child: Text("Confarmation")),
+                                        child: const Text("Confarmation")),
                                   ],
                                 );
                               });
@@ -291,7 +294,7 @@ class _AuthCardState extends State<AuthCard> {
                         },
                       ),
                       TextButton(
-                        child: Text(
+                        child: const Text(
                           "Forget Password?",
                           style: TextStyle(fontSize: 12),
                         ),

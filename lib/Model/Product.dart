@@ -30,8 +30,8 @@ class Product {
   final int cat_id;
   final String Product_name;
   final DateTime Expiredtime;
-  final double qte;
-  final double price;
+  final double? qte;
+  final double? price;
   final bool alert;
   final String url_img;
   final DateTime Data_createdTime;

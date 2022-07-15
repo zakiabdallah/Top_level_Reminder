@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tlr/db/Vargloba.dart';
+import 'package:tlr/db/database.dart';
 
 class NotificationPage extends StatefulWidget {
   NotificationPage({Key? key}) : super(key: key);
@@ -47,6 +49,30 @@ class _NotificationPageState extends State<NotificationPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Notification'),
+        actions: [
+          IconButton(
+              onPressed: () async {
+                try {
+                  await DatabaseTLR.inst.updateStyle(your_style!);
+                  Navigator.of(context).pop();
+                } catch (e) {
+                  Navigator.of(context).pop();
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                            title: const Text(
+                          "ERR: close application and open it agine",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w200),
+                        ));
+                      });
+                }
+              },
+              icon: Icon(Icons.save))
+        ],
       ),
       body: Column(
         children: [
@@ -58,7 +84,7 @@ class _NotificationPageState extends State<NotificationPage> {
               ),
               Spacer(),
               DropdownButton<String>(
-                  value: dropdownValue3,
+                  value: your_style!.NotificationAlert.toString() + " Days",
                   icon: const Icon(Icons.arrow_drop_down_sharp),
                   elevation: 16,
                   style: const TextStyle(color: Colors.blue),
@@ -68,7 +94,7 @@ class _NotificationPageState extends State<NotificationPage> {
                   ),
                   onChanged: (String? newValue) {
                     setState(() {
-                      dropdownValue3 = newValue!;
+                      your_style!.NotificationAlert = int.parse(newValue![0]);
                     });
                   },
                   items: <String>[
@@ -93,7 +119,7 @@ class _NotificationPageState extends State<NotificationPage> {
               ),
               Spacer(),
               DropdownButton<String>(
-                  value: dropdownValue1,
+                  value: your_style!.NotificationSound,
                   icon: const Icon(Icons.arrow_drop_down_sharp),
                   elevation: 16,
                   style: const TextStyle(color: Colors.blue),
@@ -103,10 +129,10 @@ class _NotificationPageState extends State<NotificationPage> {
                   ),
                   onChanged: (String? newValue) {
                     setState(() {
-                      dropdownValue1 = newValue!;
+                      your_style!.NotificationSound = newValue!;
                     });
                   },
-                  items: <String>['Sound1', 'Sound2', 'Sound3']
+                  items: <String>['sound1', 'sound2', 'sound3']
                       .map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,

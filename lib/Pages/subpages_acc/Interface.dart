@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tlr/db/Vargloba.dart';
+import 'package:tlr/db/database.dart';
 
 class Interface extends StatefulWidget {
   Interface({Key? key}) : super(key: key);
@@ -42,7 +44,6 @@ class _InterfaceState extends State<Interface> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     for (int i = 11; i <= 30; i++) {
       fontsize.add(i.toString());
@@ -212,6 +213,30 @@ class _InterfaceState extends State<Interface> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Interface'),
+        actions: [
+          IconButton(
+              onPressed: () async {
+                try {
+                  await DatabaseTLR.inst.updateStyle(your_style!);
+                  Navigator.of(context).pop();
+                } catch (e) {
+                  Navigator.of(context).pop();
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                            title: const Text(
+                          "ERR: close application and open it agine",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500),
+                        ));
+                      });
+                }
+              },
+              icon: Icon(Icons.save))
+        ],
       ),
       body: Column(
         children: [
@@ -223,7 +248,7 @@ class _InterfaceState extends State<Interface> {
               ),
               Spacer(),
               DropdownButton<String>(
-                  value: dropdownValue1,
+                  value: your_style!.Languge,
                   icon: const Icon(Icons.arrow_drop_down_sharp),
                   elevation: 16,
                   style: const TextStyle(color: Colors.blue),
@@ -233,7 +258,7 @@ class _InterfaceState extends State<Interface> {
                   ),
                   onChanged: (String? newValue) {
                     setState(() {
-                      dropdownValue1 = newValue!;
+                      your_style!.Languge = newValue!;
                     });
                   },
                   items: <String>['English', 'Franch', 'Arabe']
@@ -253,7 +278,7 @@ class _InterfaceState extends State<Interface> {
               ),
               Spacer(),
               DropdownButton<String>(
-                  value: dropdownValue3,
+                  value: your_style!.FontSize.toString(),
                   icon: const Icon(Icons.arrow_drop_down_sharp),
                   elevation: 16,
                   style: const TextStyle(color: Colors.blue),
@@ -263,7 +288,7 @@ class _InterfaceState extends State<Interface> {
                   ),
                   onChanged: (String? newValue) {
                     setState(() {
-                      dropdownValue3 = newValue!;
+                      your_style!.FontSize = int.parse(newValue!);
                     });
                   },
                   items: fontsize.map<DropdownMenuItem<String>>((String value) {
@@ -282,7 +307,7 @@ class _InterfaceState extends State<Interface> {
               ),
               Spacer(),
               DropdownButton<String>(
-                  value: dropdownValue2,
+                  value: your_style!.FontFamily,
                   icon: const Icon(Icons.arrow_drop_down_sharp),
                   elevation: 16,
                   style: const TextStyle(color: Colors.blue),
@@ -292,7 +317,7 @@ class _InterfaceState extends State<Interface> {
                   ),
                   onChanged: (String? newValue) {
                     setState(() {
-                      dropdownValue2 = newValue!;
+                      your_style!.FontFamily = newValue!;
                     });
                   },
                   items:

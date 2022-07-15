@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:date_field/date_field.dart';
 import 'package:flutter/material.dart';
@@ -171,7 +173,7 @@ class _add_pro extends State<add_pro> {
                 onPressed: () async {
                   DateTime newdate = DateTime(
                       d2.year, d2.month, d2.day, d2.hour, d2.minute, d2.second);
-
+                  log(myController2.text);
                   if (_formKey.currentState!.validate() && image1 != null) {
                     await DatabaseTLR.inst.createProducts(Product(
                         Product_name: myController1.text,
@@ -269,6 +271,9 @@ class _add_pro extends State<add_pro> {
                         controller: myController2,
                         keyboardType: TextInputType.number,
                         validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            myController2.text = "0";
+                          }
                           return null;
                         },
                       ),

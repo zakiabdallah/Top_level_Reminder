@@ -5,6 +5,7 @@ import 'package:tlr/Model/Product.dart';
 import 'package:tlr/Model/chapitre.dart';
 import 'package:tlr/Model/notification_screen.dart';
 import 'package:tlr/Model/section.dart';
+import 'package:tlr/Model/style.dart';
 import 'package:tlr/Model/tier.dart';
 import 'package:tlr/Model/user.dart';
 
@@ -16,7 +17,7 @@ class DatabaseTLR {
 
   Future<Database> get Dbase async {
     if (_db != null) return _db!;
-    _db = await _initDB('T.db');
+    _db = await _initDB('Trl.db');
     return _db!;
   }
 
@@ -85,12 +86,71 @@ FOREIGN KEY (${ProductFields.cat_id}) REFERENCES ${tablecategory}(${CategoryFiel
 )
 
 ''');
+    print("created${CategoryFields.type}");
+    await db.execute('''
+CREATE TABLE $tableStyleInterApp(
+${StyleInterAppFields.id} $typeint,
+${StyleInterAppFields.FontSize} $typeint,
+${StyleInterAppFields.Languge} $typeText,
+${StyleInterAppFields.FontFamily} $typeText,
+${StyleInterAppFields.NotificationAlert} $typeint,
+${StyleInterAppFields.NotificationSound} $typeText,
+${StyleInterAppFields.Data_createdTime} $typeText,
+${StyleInterAppFields.Data_LastModification} $typeText,
+FOREIGN KEY (${StyleInterAppFields.id}) REFERENCES ${Tableusersauth}(${usersauthFields.id})
+)
+
+''');
+  }
+
+//style
+  Future<StyleInterApp> createStyle(StyleInterApp style, int id_user) async {
+    final db_s = await inst.Dbase;
+    final id_s = await db_s.insert(tableStyleInterApp, style.toJson());
+    return style.copy(id: id_s);
+  }
+
+  Future<StyleInterApp> readStyle(int id_user) async {
+    final db = await inst.Dbase;
+    final maps = await db.query(
+      tableStyleInterApp,
+      columns: StyleInterAppFields.values,
+      where: '${StyleInterAppFields.id}=?  ',
+      whereArgs: [id_user],
+    );
+    if (maps.isNotEmpty) {
+      return StyleInterApp.fromJson(maps.first);
+    } else {
+      throw Exception('This Username  do not  exist');
+    }
+  }
+
+  Future<int> updateStyle(StyleInterApp style) async {
+    final db = await inst.Dbase;
+    return db.update(
+      tableStyleInterApp,
+      style.toJson(),
+      where: '${StyleInterAppFields.id}=?',
+      whereArgs: [style.id],
+    );
   }
 
 //users
   Future<usersauth> createUser(usersauth user) async {
     final db = await inst.Dbase;
+
     final id = await db.insert(Tableusersauth, user.toJson());
+
+    var styleInterApp = StyleInterApp(
+        id: id,
+        FontSize: 16,
+        Languge: "English",
+        FontFamily: "Arial",
+        NotificationAlert: 3,
+        NotificationSound: "sound1",
+        Data_createdTime: DateTime.now(),
+        Data_LastModification: DateTime.now());
+    await createStyle(styleInterApp, id);
     return user.copy(id: id);
   }
 
