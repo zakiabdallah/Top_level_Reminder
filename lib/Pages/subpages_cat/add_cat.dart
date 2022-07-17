@@ -6,7 +6,7 @@ import 'package:tlr/Pages/Dashbord.dart';
 import 'package:tlr/Pages/category.dart';
 import 'package:tlr/db/Vargloba.dart';
 import 'dart:io';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:tlr/db/database.dart';
 
 class add_cat extends StatefulWidget {
@@ -76,7 +76,7 @@ class _add_cat extends State<add_cat> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text(
-              "Choose option",
+              "${AppLocalizations.of(context)!.chooseoption}",
               style: TextStyle(color: Colors.blue),
             ),
             content: SingleChildScrollView(
@@ -90,7 +90,7 @@ class _add_cat extends State<add_cat> {
                     onTap: () {
                       pimg(ImageSource.gallery);
                     },
-                    title: Text("Gallery"),
+                    title: Text(AppLocalizations.of(context)!.gallery),
                     leading: Icon(
                       Icons.account_box,
                       color: Colors.blue,
@@ -104,7 +104,7 @@ class _add_cat extends State<add_cat> {
                     onTap: () {
                       pimg(ImageSource.camera);
                     },
-                    title: Text("Camera"),
+                    title: Text(AppLocalizations.of(context)!.camera),
                     leading: Icon(
                       Icons.camera,
                       color: Colors.blue,
@@ -123,7 +123,7 @@ class _add_cat extends State<add_cat> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Add Category'),
+          title: Text(AppLocalizations.of(context)!.addCategory),
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () {
@@ -153,11 +153,12 @@ class _add_cat extends State<add_cat> {
                         Data_createdTime: DateTime.now(),
                         Data_LastModification: DateTime.now()));
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      content: Text("${myController.text} was created sec "),
+                      content: Text("${myController.text} was created  "),
                     ));
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      content: Text("Error: Try agine "),
+                      content: Text(
+                          "${AppLocalizations.of(context)!.error}: ${AppLocalizations.of(context)!.tryagain}"),
                     ));
                   }
                 },
@@ -213,23 +214,25 @@ class _add_cat extends State<add_cat> {
                       ],
                     ),
                     TextFormField(
-                      decoration: const InputDecoration(
-                        icon: const Icon(Icons.label_important),
-                        hintText: 'Enter Category name',
+                      decoration: InputDecoration(
+                        icon: Icon(Icons.label_important),
+                        hintText: AppLocalizations.of(context)!.categoryname,
                       ),
                       controller: myController,
                       keyboardType: TextInputType.name,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
+                          return AppLocalizations.of(context)!.categorynameerr;
                         }
                         return null;
                       },
                     ),
                     //TODO:how let DropdownButton dont display  all text  flutter
                     DropdownButtonFormField<String>(
+                        menuMaxHeight: 250.0,
+                        alignment: Alignment.bottomLeft,
                         value: dropdownValue,
-                        hint: Text("Category"),
+                        hint: Text(AppLocalizations.of(context)!.category),
                         decoration: const InputDecoration(
                           icon: const Icon(Icons.category_outlined),
                         ),
@@ -242,7 +245,7 @@ class _add_cat extends State<add_cat> {
                           });
                         },
                         validator: (value) => dropdownValue == null
-                            ? "Category is required"
+                            ? AppLocalizations.of(context)!.categoryerr
                             : null,
                         items: all_catgories
                             .map<DropdownMenuItem<String>>((String value) {

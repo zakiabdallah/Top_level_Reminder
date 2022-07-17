@@ -1,0 +1,420 @@
+{
+    "statistic": "statistic",
+    "@statistic":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "yourbestsales": "Your best sales",
+    "@yourbestsales":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "yourstock": "Your stock",
+    "@yourstock":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "categoriesonstock": "Categories on stock",
+    "@categoriesonstock":{
+    "description": "The conventional newborn programmer greeting"
+    },
+    "productonstock": "Product on stock",
+    "@productonstock":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "oils": "oils",
+    "@oils":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "sugars": "Sugars",
+    "@sugars":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "cocoa": "Cocoa",
+    "@cocoa":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "cereals": "cereals",
+    "@cereals":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "beverages": "Beverages",
+    "@beverages":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "categories": "Categories",
+    "@categories":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "products": "Products",
+    "@products":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "category": "Category",
+    "@category":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "categoryerr": "Category is required",
+    "@categoryerr":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "others": "others",
+    "@others":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "settings": "Settings",
+    "@settings":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "account": "Account",
+    "@account":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "interface": "Interface",
+    "@interface":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "notification": "Notification",
+    "@notification":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "contectus": "Contect Us",
+    "@contectus":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "feedBack": "FeedBack",
+    "@feedBack":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "createcategory": "Create Category",
+    "@createcategory":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "da": "DA",
+    "@da":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "quantity": "Quantity",
+    "@quantity":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "quantityerr": "Quantity is required",
+    "@quantityerr":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "search": "Search",
+    "@search":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "createProduct": "Create Product",
+    "@createProduct":{
+        "description": "The conventional newborn programmer greeting"
+    },    
+    "alertproduct": "Alert product",
+    "@alertproduct":{
+        "description": "The conventional newborn programmer greeting"
+    },     
+    "expiredproduct": "Expired product",
+    "@expiredproduct":{
+        "description": "The conventional newborn programmer greeting"
+    },     
+    "exp": "Exp",
+    "@exp":{
+        "description": "The conventional newborn programmer greeting"
+    },   
+    "organization": "Organization",
+    "@organization":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "organizationisrequired": "Organization is required",
+    "@organizationisrequired":{
+        "description": "The conventional newborn programmer greeting"
+    },  
+    "firstName": "First Name",
+    "@firstName":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "firstNameisrequired": "First Name is required",
+    "@firstNameisrequired":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "lastName": "Last Name",
+    "@lastName":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "lastNameisrequired": "Last Name is required",
+    "@lastNameisrequired":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "birthday": "date of birth",
+    "@birthday":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "birthdayerrone": "Birthday is required",
+    "@birthdayerrone":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "birthdayerrtwo": "You must be over one8 years old to use the application",
+    "@birthdayerrtwo":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "placeofbirth": "Place of birth",
+    "@placeofbirth":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "placeofbirtherr": "Place of birth is required",
+    "@placeofbirtherr":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "address": "Address",
+    "@address":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "addresserr": "Address is required",
+    "@addresserr":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "phone": "Phone",
+    "@phone":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "phoneerr": "Phone is required",
+    "@phoneerr":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "crn": "CRN",
+    "@crn":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "crnerr": "CRN is required",
+    "@crnerr":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "email": "Email",
+    "@email":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "emailerr": "Email is required",
+    "@emailerr":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "username": "Username",
+    "@username":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "usernameerr": "Username is required",
+    "@usernameerr":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "password": "Password",
+    "@password":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "passworderr": "Password is required",
+    "@passworderr":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "coopassword": "Co-Password",
+    "@coopassword":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "coopassworderrone": "Co-Password is required",
+    "@coopassworderrone":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "coopassworderrtwo": "Co-Password  does not match",
+    "@coopassworderrtwo":{
+        "description": "The conventional newborn programmer greeting"
+    },  
+    "passwordnotcorrect": "Password not correct",
+    "@passwordnotcorrect":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "userandpassworderr": "Username or password is not  correct",
+    "@userandpassworderr":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "ok": "Ok",
+    "@ok":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "login": "log in",
+    "@login":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "signup": "Sign up",
+    "@signup":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "forgetpassword": "Forget Password",
+    "@forgetpassword":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "noproduct": "No Product",
+    "@noproduct":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "chooseoption": "Choose option",
+    "@chooseoption":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "gallery": "Gallery",
+    "@gallery":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "camera": "Camera",
+    "@camera":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "editProduct": "Edit Product",
+    "@editProduct":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "done": "Done",
+    "@done":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "error": "Error",
+    "@error":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "tryagain": "Try again",
+    "@tryagain":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "productname": "Product name",
+    "@productname":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "productnameerr": "Product name is required",
+    "@productnameerr":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "price": "Price",
+    "@price":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "priceerr": "Price is required",
+    "@priceerr":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "expireddate": "Expired date",
+    "@expireddate":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "expireddateerrone": "Expired date  is required",
+    "@expireddateerrone":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "expireddateerrtwo": "This date is Expired",
+    "@expireddateerrtwo":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "details": "DETAILS",
+    "@details":{
+        "description": "The conventional newborn programmer greeting"
+    },  
+    "tips": "Tips",
+    "@tips":{
+        "description": "The conventional newborn programmer greeting"
+    },  
+    "name": "Name",
+    "@name":{
+        "description": "The conventional newborn programmer greeting"
+    },  
+    "expiredtime": "Expired Time",
+    "@expiredtime":{
+        "description": "The conventional newborn programmer greeting"
+    },  
+    "ptips": "Here are some tips:",
+    "@ptips":{
+        "description": "The conventional newborn programmer greeting"
+    },  
+    "tip": "tip",
+    "@tip":{
+        "description": "The conventional newborn programmer greeting"
+    },  
+    "addCategory": "Add Category",
+    "@addCategory":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "categoryname": "Category name",
+    "@categoryname":{
+        "description": "The conventional newborn programmer greeting"
+    },  
+    "categorynameerr": "Category name is required",
+    "@categorynameerr":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+ 
+    "messageerr": "Close the app and reoopen it",
+    "@messageerr":{
+        "description": "The conventional newborn programmer greeting"
+    },  
+    "notificationAlart": "Notification Alart",
+    "@notificationAlart":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "days": "Days",
+    "@days":{
+        "description": "The conventional newborn programmer greeting"
+    },  
+    "notificationsound": "Notification sound",
+    "@notificationsound":{
+        "description": "The conventional newborn programmer greeting"
+    },  
+    "sound": "sound",
+    "@sound":{
+        "description": "The conventional newborn programmer greeting"
+    },    
+    "languge": "Languge",
+    "@languge":{
+        "description": "The conventional newborn programmer greeting"
+    },  
+    "fontFamily": "FontFamily",
+    "@fontFamily":{
+        "description": "The conventional newborn programmer greeting"
+    },   
+    "feedbackm": "Message",
+    "@feedbackm":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "feedbackmessage": "Write some suggestions",
+    "@feedbackmessage":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "eomail": "Eomail",
+    "@eomail":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "phoneNumber": "Phone Number",
+    "@phoneNumber":{
+        "description": "The conventional newborn programmer greeting"
+    }, 
+    "accountedit": "Account edit",
+    "@accountedit":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "home": "Home",
+    "@home":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "type": "Type",
+    "@type":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "product": "Product",
+    "@product":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "feedbackerr": "Please input some tips",
+    "@feedbackerr":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "fontsize": "FontSize",
+    "@fontsize":{
+        "description": "The conventional newborn programmer greeting"
+    },
+    "addproduct": "Add Product",
+    "@addproduct":{
+        "description": "The conventional newborn programmer greeting"
+    }
+
+}

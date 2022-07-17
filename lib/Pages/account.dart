@@ -5,6 +5,7 @@ import 'package:tlr/Pages/subpages_acc/Contect_Us%20.dart';
 import 'package:tlr/Pages/subpages_acc/Interface.dart';
 import 'package:tlr/Pages/subpages_acc/Notification.dart';
 import 'package:tlr/Pages/subpages_acc/feedback.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class account extends StatelessWidget {
   @override
@@ -34,7 +35,7 @@ class account extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Settings',
+                  AppLocalizations.of(context)!.settings,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
                 ),
                 Divider(
@@ -46,31 +47,31 @@ class account extends StatelessWidget {
                   children: [
                     ListTile(
                       leading: Icon(Icons.assignment_ind_outlined),
-                      title: Text('Account'),
+                      title: Text(AppLocalizations.of(context)!.account),
                       onTap: () => Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => Account_edit())),
                     ),
                     ListTile(
                       leading: Icon(Icons.app_shortcut_outlined),
-                      title: Text('Interface'),
+                      title: Text(AppLocalizations.of(context)!.interface),
                       onTap: () => Navigator.of(context).push(
                           MaterialPageRoute(builder: (context) => Interface())),
                     ),
                     ListTile(
                       leading: Icon(Icons.notifications_outlined),
-                      title: Text('Notification'),
+                      title: Text(AppLocalizations.of(context)!.notification),
                       onTap: () => Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => NotificationPage())),
                     ),
                     ListTile(
                       leading: Icon(Icons.contact_support_outlined),
-                      title: Text('Contect Us '),
+                      title: Text(AppLocalizations.of(context)!.contectus),
                       onTap: () => Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => Contect_us())),
                     ),
                     ListTile(
                       leading: Icon(Icons.announcement_outlined),
-                      title: Text('FeedBack '),
+                      title: Text(AppLocalizations.of(context)!.feedBack),
                       onTap: () => Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => Feedback_page())),
                     ),

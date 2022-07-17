@@ -8,6 +8,7 @@ import 'package:tlr/Model/user.dart';
 import 'package:tlr/Pages/Connecter.dart';
 import 'package:tlr/db/Vargloba.dart';
 import 'package:tlr/db/database.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Register extends StatefulWidget {
   String role;
@@ -41,28 +42,30 @@ class _RegisterState extends State<Register> with TickerProviderStateMixin {
     previouspageicon = null;
     nameimg = 'images/Register1.jpg';
     pageinfo = 'Personal information';
-    if (widget.role == "Simple client" || widget.role == "....") {
-      orgafield = Text("");
-    } else {
-      orgafield = TextFormField(
-        decoration: const InputDecoration(
-          label: Text('Organization',
-              style: TextStyle(
-                  color: Colors.blueAccent,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500)),
-          icon: Icon(Icons.location_city, color: Colors.blueAccent),
-        ),
-        keyboardType: TextInputType.name,
-        controller: OrgController,
-        validator: (value) {
-          if (value == null || value.isEmpty) {
-            return 'Organization is required';
-          }
-          return null;
-        },
-      );
-    }
+    Future.delayed(Duration.zero, () {
+      if (widget.role == "Simple client" || widget.role == "....") {
+        orgafield = Text("");
+      } else {
+        orgafield = TextFormField(
+          decoration: InputDecoration(
+            label: Text(AppLocalizations.of(context)!.organization,
+                style: TextStyle(
+                    color: Colors.blueAccent,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500)),
+            icon: Icon(Icons.location_city, color: Colors.blueAccent),
+          ),
+          keyboardType: TextInputType.name,
+          controller: OrgController,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return AppLocalizations.of(context)!.organizationisrequired;
+            }
+            return null;
+          },
+        );
+      }
+    });
   }
 
   final FirstnameController = TextEditingController();
@@ -156,8 +159,10 @@ class _RegisterState extends State<Register> with TickerProviderStateMixin {
                                     width: ScreenSize.width / 3,
                                     child: TextFormField(
                                       cursorColor: Colors.blueAccent,
-                                      decoration: const InputDecoration(
-                                        label: Text('First Name',
+                                      decoration: InputDecoration(
+                                        label: Text(
+                                            AppLocalizations.of(context)!
+                                                .firstName,
                                             style: TextStyle(
                                                 color: Colors.blueAccent,
                                                 fontWeight: FontWeight.w500)),
@@ -166,7 +171,8 @@ class _RegisterState extends State<Register> with TickerProviderStateMixin {
                                       controller: FirstnameController,
                                       validator: (value) {
                                         if (value == null || value.isEmpty) {
-                                          return 'First Name is required';
+                                          return AppLocalizations.of(context)!
+                                              .firstNameisrequired;
                                         }
                                         return null;
                                       },
@@ -175,8 +181,10 @@ class _RegisterState extends State<Register> with TickerProviderStateMixin {
                                   SizedBox(
                                     width: ScreenSize.width / 3,
                                     child: TextFormField(
-                                      decoration: const InputDecoration(
-                                        label: Text('Last Name',
+                                      decoration: InputDecoration(
+                                        label: Text(
+                                            AppLocalizations.of(context)!
+                                                .lastName,
                                             style: TextStyle(
                                                 color: Colors.blueAccent,
                                                 fontWeight: FontWeight.w500)),
@@ -185,7 +193,8 @@ class _RegisterState extends State<Register> with TickerProviderStateMixin {
                                       controller: LastNameController,
                                       validator: (value) {
                                         if (value == null || value.isEmpty) {
-                                          return 'Last Name is required';
+                                          return AppLocalizations.of(context)!
+                                              .lastNameisrequired;
                                         }
                                         return null;
                                       },
@@ -197,8 +206,9 @@ class _RegisterState extends State<Register> with TickerProviderStateMixin {
                                 height: ScreenSize.height / 32,
                               ),
                               DateTimeFormField(
-                                decoration: const InputDecoration(
-                                  label: Text('Birthday',
+                                decoration: InputDecoration(
+                                  label: Text(
+                                      AppLocalizations.of(context)!.birthday,
                                       style: TextStyle(
                                           color: Colors.blueAccent,
                                           fontWeight: FontWeight.w500)),
@@ -214,9 +224,11 @@ class _RegisterState extends State<Register> with TickerProviderStateMixin {
                                     DateTime.now().month, DateTime.now().day),
                                 validator: (e) {
                                   if (e == null) {
-                                    return 'Expired date  is required ';
+                                    return AppLocalizations.of(context)!
+                                        .birthdayerrone;
                                   } else if ((e) == DateTime.now()) {
-                                    return 'This date is Expired ';
+                                    return AppLocalizations.of(context)!
+                                        .birthdayerrtwo;
                                   }
                                   return null;
                                 },
@@ -253,10 +265,12 @@ class _RegisterState extends State<Register> with TickerProviderStateMixin {
                                 height: ScreenSize.height / 32,
                               ),
                               TextFormField(
-                                decoration: const InputDecoration(
+                                decoration: InputDecoration(
                                   icon: const Icon(Icons.home_filled,
                                       color: Colors.blueAccent),
-                                  label: Text('Place of birth',
+                                  label: Text(
+                                      AppLocalizations.of(context)!
+                                          .placeofbirth,
                                       style: TextStyle(
                                           color: Colors.blueAccent,
                                           fontWeight: FontWeight.w500)),
@@ -265,7 +279,8 @@ class _RegisterState extends State<Register> with TickerProviderStateMixin {
                                 controller: PlaceOfBirthController,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
-                                    return 'Place of birth is required';
+                                    return AppLocalizations.of(context)!
+                                        .placeofbirtherr;
                                   }
                                   return null;
                                 },
@@ -283,8 +298,9 @@ class _RegisterState extends State<Register> with TickerProviderStateMixin {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             TextFormField(
-                              decoration: const InputDecoration(
-                                label: Text('Address',
+                              decoration: InputDecoration(
+                                label: Text(
+                                    AppLocalizations.of(context)!.address,
                                     style: TextStyle(
                                         color: Colors.blueAccent,
                                         fontWeight: FontWeight.w500)),
@@ -295,14 +311,15 @@ class _RegisterState extends State<Register> with TickerProviderStateMixin {
                               controller: AddressController,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
-                                  return 'Address is required';
+                                  return AppLocalizations.of(context)!
+                                      .addresserr;
                                 }
                                 return null;
                               },
                             ),
                             TextFormField(
-                              decoration: const InputDecoration(
-                                label: Text('Phone',
+                              decoration: InputDecoration(
+                                label: Text(AppLocalizations.of(context)!.phone,
                                     style: TextStyle(
                                         color: Colors.blueAccent,
                                         fontWeight: FontWeight.w500)),
@@ -313,14 +330,14 @@ class _RegisterState extends State<Register> with TickerProviderStateMixin {
                               controller: PhoneController,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
-                                  return 'Phone is required';
+                                  return AppLocalizations.of(context)!.phoneerr;
                                 }
                                 return null;
                               },
                             ),
                             TextFormField(
-                              decoration: const InputDecoration(
-                                label: Text('CRN',
+                              decoration: InputDecoration(
+                                label: Text(AppLocalizations.of(context)!.crn,
                                     style: TextStyle(
                                         color: Colors.blueAccent,
                                         fontWeight: FontWeight.w500)),
@@ -331,7 +348,7 @@ class _RegisterState extends State<Register> with TickerProviderStateMixin {
                               controller: CRNController,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
-                                  return 'CRN is required';
+                                  return AppLocalizations.of(context)!.crnerr;
                                 }
                                 return null;
                               },
@@ -346,22 +363,23 @@ class _RegisterState extends State<Register> with TickerProviderStateMixin {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           TextFormField(
-                            decoration: const InputDecoration(
-                              label: Text('Email'),
+                            decoration: InputDecoration(
+                              label: Text(AppLocalizations.of(context)!.email),
                               icon: Icon(Icons.email, color: Colors.blueAccent),
                             ),
                             keyboardType: TextInputType.emailAddress,
                             controller: EmailController,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
-                                return 'Email is required';
+                                return AppLocalizations.of(context)!.emailerr;
                               }
                               return null;
                             },
                           ),
                           TextFormField(
-                            decoration: const InputDecoration(
-                              label: Text('Username'),
+                            decoration: InputDecoration(
+                              label:
+                                  Text(AppLocalizations.of(context)!.username),
                               icon:
                                   Icon(Icons.person, color: Colors.blueAccent),
                             ),
@@ -369,7 +387,8 @@ class _RegisterState extends State<Register> with TickerProviderStateMixin {
                             controller: UserNameController,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
-                                return 'Username is required';
+                                return AppLocalizations.of(context)!
+                                    .usernameerr;
                               }
                               return null;
                             },
@@ -378,7 +397,8 @@ class _RegisterState extends State<Register> with TickerProviderStateMixin {
                             keyboardType: TextInputType.text,
                             obscureText: !passwordVisible,
                             decoration: InputDecoration(
-                              label: Text('Password'),
+                              label:
+                                  Text(AppLocalizations.of(context)!.password),
                               icon: Icon(Icons.security,
                                   color: Colors.blueAccent),
                               suffixIcon: IconButton(
@@ -398,7 +418,8 @@ class _RegisterState extends State<Register> with TickerProviderStateMixin {
                             controller: PasswordController,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
-                                return 'Password is required';
+                                return AppLocalizations.of(context)!
+                                    .passworderr;
                               }
                               return null;
                             },
@@ -407,7 +428,8 @@ class _RegisterState extends State<Register> with TickerProviderStateMixin {
                             keyboardType: TextInputType.text,
                             obscureText: !REpasswordVisible,
                             decoration: InputDecoration(
-                              label: Text('Co-Password'),
+                              label: Text(
+                                  AppLocalizations.of(context)!.coopassword),
                               icon: Icon(Icons.security,
                                   color: Colors.blueAccent),
                               suffixIcon: IconButton(
@@ -429,9 +451,11 @@ class _RegisterState extends State<Register> with TickerProviderStateMixin {
                               print(PasswordController.text.toString());
                               print(value.toString());
                               if (value == null || value.isEmpty) {
-                                return 'Co-Password is required';
+                                return AppLocalizations.of(context)!
+                                    .coopassworderrone;
                               } else if (value != PasswordController.text) {
-                                return 'Co-Password  do not match';
+                                return AppLocalizations.of(context)!
+                                    .coopassworderrtwo;
                               }
                               return null;
                             },

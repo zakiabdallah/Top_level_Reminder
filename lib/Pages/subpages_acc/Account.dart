@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Account_edit extends StatefulWidget {
   Account_edit({Key? key}) : super(key: key);
@@ -65,7 +66,7 @@ class _Account_editState extends State<Account_edit> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text(
-              "Choose option",
+              AppLocalizations.of(context)!.chooseoption,
               style: TextStyle(color: Colors.blue),
             ),
             content: SingleChildScrollView(
@@ -79,7 +80,7 @@ class _Account_editState extends State<Account_edit> {
                     onTap: () {
                       pimg(ImageSource.gallery);
                     },
-                    title: Text("Gallery"),
+                    title: Text(AppLocalizations.of(context)!.gallery),
                     leading: Icon(
                       Icons.account_box,
                       color: Colors.blue,
@@ -93,7 +94,7 @@ class _Account_editState extends State<Account_edit> {
                     onTap: () {
                       pimg(ImageSource.camera);
                     },
-                    title: Text("Camera"),
+                    title: Text(AppLocalizations.of(context)!.camera),
                     leading: Icon(
                       Icons.camera,
                       color: Colors.blue,
@@ -112,7 +113,7 @@ class _Account_editState extends State<Account_edit> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Account_edit'),
+          title: Text(AppLocalizations.of(context)!.accountedit),
           actions: [IconButton(onPressed: () {}, icon: Icon(Icons.save))],
         ),
         body: SingleChildScrollView(
@@ -168,15 +169,17 @@ class _Account_editState extends State<Account_edit> {
                         Container(
                           width: MediaQuery.of(context).size.width / 2 - 10,
                           child: TextFormField(
-                            decoration: const InputDecoration(
-                              labelText: 'First name',
-                              hintText: 'First name',
+                            decoration: InputDecoration(
+                              labelText:
+                                  AppLocalizations.of(context)!.firstName,
+                              hintText: AppLocalizations.of(context)!.firstName,
                             ),
                             controller: myController,
                             keyboardType: TextInputType.name,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
-                                return 'Please enter some text';
+                                return AppLocalizations.of(context)!
+                                    .firstNameisrequired;
                               }
                               return null;
                             },
@@ -188,15 +191,16 @@ class _Account_editState extends State<Account_edit> {
                         Container(
                           width: MediaQuery.of(context).size.width / 2 - 10,
                           child: TextFormField(
-                            decoration: const InputDecoration(
-                              labelText: 'Last name',
-                              hintText: 'Last name',
+                            decoration: InputDecoration(
+                              labelText: AppLocalizations.of(context)!.lastName,
+                              hintText: AppLocalizations.of(context)!.lastName,
                             ),
                             controller: myController,
                             keyboardType: TextInputType.name,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
-                                return 'Please enter some text';
+                                return AppLocalizations.of(context)!
+                                    .lastNameisrequired;
                               }
                               return null;
                             },
@@ -205,46 +209,46 @@ class _Account_editState extends State<Account_edit> {
                       ],
                     ),
                     TextFormField(
-                      decoration: const InputDecoration(
-                        icon: const Icon(Icons.email),
-                        labelText: 'Email',
-                        hintText: 'Email',
+                      decoration: InputDecoration(
+                        icon: Icon(Icons.email),
+                        labelText: AppLocalizations.of(context)!.email,
+                        hintText: AppLocalizations.of(context)!.email,
                       ),
                       controller: myController3,
                       keyboardType: TextInputType.name,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
+                          return AppLocalizations.of(context)!.emailerr;
                         }
                         return null;
                       },
                     ),
                     TextFormField(
-                      decoration: const InputDecoration(
-                        icon: const Icon(Icons.phone),
-                        labelText: 'Phone',
-                        hintText: 'Phone',
+                      decoration: InputDecoration(
+                        icon: Icon(Icons.phone),
+                        labelText: AppLocalizations.of(context)!.phone,
+                        hintText: AppLocalizations.of(context)!.phone,
                       ),
                       controller: myController3,
                       keyboardType: TextInputType.name,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
+                          return AppLocalizations.of(context)!.phoneerr;
                         }
                         return null;
                       },
                     ),
                     TextFormField(
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         icon: const Icon(Icons.person),
-                        labelText: 'Username',
-                        hintText: 'Username',
+                        labelText: AppLocalizations.of(context)!.username,
+                        hintText: AppLocalizations.of(context)!.username,
                       ),
                       controller: myController,
                       keyboardType: TextInputType.name,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
+                          return AppLocalizations.of(context)!.usernameerr;
                         }
                         return null;
                       },
@@ -255,13 +259,13 @@ class _Account_editState extends State<Account_edit> {
                       obscureText: !passwordVisible,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Password is required';
+                          return AppLocalizations.of(context)!.passworderr;
                         }
                         return null;
                       },
                       decoration: InputDecoration(
-                        labelText: 'Password',
-                        hintText: 'Password',
+                        labelText: AppLocalizations.of(context)!.password,
+                        hintText: AppLocalizations.of(context)!.password,
                         suffixIcon: IconButton(
                           icon: Icon(
                             passwordVisible
@@ -283,13 +287,14 @@ class _Account_editState extends State<Account_edit> {
                       obscureText: !REpasswordVisible,
                       validator: (value) {
                         if (value != myController4) {
-                          return 'co-password not match with password ';
+                          return AppLocalizations.of(context)!
+                              .coopassworderrtwo;
                         }
                         return null;
                       },
                       decoration: InputDecoration(
-                        labelText: 'co-Password',
-                        hintText: 'co-Password',
+                        labelText: AppLocalizations.of(context)!.coopassword,
+                        hintText: AppLocalizations.of(context)!.coopassword,
                         suffixIcon: IconButton(
                           icon: Icon(
                             REpasswordVisible

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Feedback_page extends StatefulWidget {
   Feedback_page({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class _Feedback_pageState extends State<Feedback_page> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Feedback'),
+          title: Text(AppLocalizations.of(context)!.feedBack),
           actions: [
             IconButton(
                 onPressed: () {
@@ -41,13 +42,14 @@ class _Feedback_pageState extends State<Feedback_page> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Message :"),
+                    Text("${AppLocalizations.of(context)!.feedbackm}:"),
                     SizedBox(
                       height: 10,
                     ),
                     TextFormField(
                       decoration: InputDecoration(
-                        hintText: 'Write some suggestions...',
+                        hintText:
+                            '${AppLocalizations.of(context)!.feedbackmessage}...',
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(25.0),
                           borderSide: BorderSide(
@@ -60,7 +62,7 @@ class _Feedback_pageState extends State<Feedback_page> {
                       maxLines: 10,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
+                          return AppLocalizations.of(context)!.feedbackerr;
                         }
                         return null;
                       },

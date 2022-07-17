@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tlr/Model/Product.dart';
 import 'package:tlr/Pages/subpages_pro/edit_pro.dart';
 import 'package:tlr/db/Vargloba.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class detail_pro extends StatefulWidget {
   detail_pro({Key? key, required this.d}) : super(key: key);
@@ -59,10 +60,10 @@ class _detail_proState extends State<detail_pro> with TickerProviderStateMixin {
             children: <Widget>[
               TabBar(
                 controller: tabController,
-                tabs: const <Widget>[
+                tabs: <Widget>[
                   Tab(
                     child: Text(
-                      "DETAILS",
+                      AppLocalizations.of(context)!.details,
                       style: TextStyle(
                         color: Colors.black,
                       ),
@@ -70,7 +71,7 @@ class _detail_proState extends State<detail_pro> with TickerProviderStateMixin {
                   ),
                   Tab(
                     child: Text(
-                      "Tips",
+                      AppLocalizations.of(context)!.tips,
                       style: TextStyle(
                         color: Colors.black,
                       ),
@@ -89,20 +90,24 @@ class _detail_proState extends State<detail_pro> with TickerProviderStateMixin {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Name:${widget.d.Product_name}"),
-                          Text("Quantity:${widget.d.qte}"),
-                          Text("Price:${widget.d.price}"),
-                          Text("Expired Time:${widget.d.Expiredtime}")
+                          Text(
+                              "${AppLocalizations.of(context)!.name}:${widget.d.Product_name}"),
+                          Text(
+                              "${AppLocalizations.of(context)!.quantity}:${widget.d.qte}"),
+                          Text(
+                              "${AppLocalizations.of(context)!.price}:${widget.d.price}"),
+                          Text(
+                              "${AppLocalizations.of(context)!.expiredtime}:${widget.d.Expiredtime}")
                         ],
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text("there are some  tips:"),
-                          Text("\t - tip1"),
-                          Text("\t - tip2"),
-                          Text("\t - tip3"),
-                          Text("\t - tip4")
+                        children:  [
+                          Text("${AppLocalizations.of(context)!.ptips}:"),
+                          Text("\t - ${AppLocalizations.of(context)!.tip}1"),
+                          Text("\t - ${AppLocalizations.of(context)!.tip}2"),
+                          Text("\t -${AppLocalizations.of(context)!.tip}3"),
+                          Text("\t - ${AppLocalizations.of(context)!.tip}4")
                         ],
                       ),
                     ],

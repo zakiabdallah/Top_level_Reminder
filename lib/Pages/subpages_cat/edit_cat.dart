@@ -6,7 +6,7 @@ import 'package:tlr/Pages/category.dart';
 import 'package:tlr/Pages/subpages_cat/detail_cat.dart';
 import 'package:tlr/db/Vargloba.dart';
 import 'dart:io';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:tlr/db/database.dart';
 
 class edit_cat extends StatefulWidget {
@@ -48,7 +48,7 @@ class _edit_cat extends State<edit_cat> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text(
-              "Choose option",
+              AppLocalizations.of(context)!.chooseoption,
               style: TextStyle(color: Colors.blue),
             ),
             content: SingleChildScrollView(
@@ -62,7 +62,7 @@ class _edit_cat extends State<edit_cat> {
                     onTap: () {
                       pimg(ImageSource.gallery);
                     },
-                    title: Text("Gallery"),
+                    title: Text(AppLocalizations.of(context)!.gallery),
                     leading: Icon(
                       Icons.account_box,
                       color: Colors.blue,
@@ -76,7 +76,7 @@ class _edit_cat extends State<edit_cat> {
                     onTap: () {
                       pimg(ImageSource.camera);
                     },
-                    title: Text("Camera"),
+                    title: Text(AppLocalizations.of(context)!.camera),
                     leading: Icon(
                       Icons.camera,
                       color: Colors.blue,
@@ -95,7 +95,7 @@ class _edit_cat extends State<edit_cat> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: const Text('Add Category'),
+            title: Text(AppLocalizations.of(context)!.addCategory),
             leading: IconButton(
               icon: Icon(Icons.arrow_back),
               onPressed: () {
@@ -135,7 +135,8 @@ class _edit_cat extends State<edit_cat> {
                       ));
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text("Error: Try agine "),
+                        content: Text(
+                            "${AppLocalizations.of(context)!.error}: ${AppLocalizations.of(context)!.tryagain} "),
                       ));
                     }
                   },
@@ -190,15 +191,15 @@ class _edit_cat extends State<edit_cat> {
                       ],
                     ),
                     TextFormField(
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         icon: const Icon(Icons.label_important),
-                        hintText: 'Enter Category name',
+                        hintText: AppLocalizations.of(context)!.categoryname,
                       ),
                       controller: myController,
                       keyboardType: TextInputType.name,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Category name is required';
+                          return AppLocalizations.of(context)!.categorynameerr;
                         }
                         return null;
                       },
@@ -206,10 +207,10 @@ class _edit_cat extends State<edit_cat> {
                     //TODO:how let DropdownButton dont display  all text  flutter
                     DropdownButtonFormField<String>(
                         value: dropdownValue,
-                        hint: Text("Category"),
-                        decoration: const InputDecoration(
+                        hint: Text(AppLocalizations.of(context)!.category),
+                        decoration: InputDecoration(
                           icon: const Icon(Icons.category_outlined),
-                          hintText: 'Category',
+                          hintText: AppLocalizations.of(context)!.category,
                         ),
                         icon: const Icon(Icons.arrow_drop_down_sharp),
                         elevation: 16,
@@ -220,7 +221,7 @@ class _edit_cat extends State<edit_cat> {
                           });
                         },
                         validator: (value) => dropdownValue == null
-                            ? "Category is required"
+                            ? AppLocalizations.of(context)!.categoryerr
                             : null,
                         items: all_catgories
                             .map<DropdownMenuItem<String>>((String value) {

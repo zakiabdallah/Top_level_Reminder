@@ -8,6 +8,7 @@ import 'package:tlr/Pages/subpages_cat/edit_cat.dart';
 import 'package:tlr/Pages/subpages_pro/detail_pro.dart';
 import 'package:tlr/db/Vargloba.dart';
 import 'package:tlr/db/database.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class deatail_cat extends StatefulWidget {
   deatail_cat({Key? key, required this.i}) : super(key: key);
@@ -86,7 +87,7 @@ class _deatail_catState extends State<deatail_cat> {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [Text("No Product")]),
+                    children: [Text(AppLocalizations.of(context)!.noproduct)]),
               ));
   }
 
@@ -94,14 +95,15 @@ class _deatail_catState extends State<deatail_cat> {
     return ListTile(
       leading: Icon(Icons.dashboard),
       title: Text(pro.Product_name),
-      trailing: Text("${pro.price} DA"),
+      trailing: Text("${pro.price} ${AppLocalizations.of(context)!.da}"),
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => detail_pro(
                   d: pro,
                 )));
       },
-      subtitle: Text("Exp:${pro.Expiredtime}|Quantity:${pro.qte}"),
+      subtitle: Text(
+          "${AppLocalizations.of(context)!.exp}:${pro.Expiredtime}|${AppLocalizations.of(context)!.quantity}:${pro.qte}"),
     );
   }
 }

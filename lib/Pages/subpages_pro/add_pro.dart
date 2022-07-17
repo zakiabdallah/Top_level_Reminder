@@ -12,7 +12,7 @@ import 'package:tlr/Pages/Dashbord.dart';
 import 'package:tlr/Pages/category.dart';
 import 'package:tlr/db/Vargloba.dart';
 import 'dart:io';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:tlr/db/database.dart';
 
 class add_pro extends StatefulWidget {
@@ -57,8 +57,7 @@ class _add_pro extends State<add_pro> {
             context: context,
             builder: (context) => AlertDialog(
                   title: Text('Allow Notidication'),
-                  content:
-                      Text('our app  would  like to send  you  notfication'),
+                  content: Text('our app would like to send you notfication'),
                   actions: [
                     ElevatedButton(
                         onPressed: () {
@@ -115,7 +114,7 @@ class _add_pro extends State<add_pro> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text(
-              "Choose option",
+              AppLocalizations.of(context)!.chooseoption,
               style: TextStyle(color: Colors.blue),
             ),
             content: SingleChildScrollView(
@@ -129,7 +128,7 @@ class _add_pro extends State<add_pro> {
                     onTap: () {
                       pimg(ImageSource.gallery);
                     },
-                    title: Text("Gallery"),
+                    title: Text(AppLocalizations.of(context)!.gallery),
                     leading: Icon(
                       Icons.account_box,
                       color: Colors.blue,
@@ -143,7 +142,7 @@ class _add_pro extends State<add_pro> {
                     onTap: () {
                       pimg(ImageSource.camera);
                     },
-                    title: Text("Camera"),
+                    title: Text(AppLocalizations.of(context)!.camera),
                     leading: Icon(
                       Icons.camera,
                       color: Colors.blue,
@@ -160,7 +159,7 @@ class _add_pro extends State<add_pro> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text('Add Product'),
+          title: Text(AppLocalizations.of(context)!.addproduct),
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () {
@@ -205,11 +204,12 @@ class _add_pro extends State<add_pro> {
                         Data_LastModification: DateTime.now()));
 
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      content: Text("Done "),
+                      content: Text(AppLocalizations.of(context)!.done),
                     ));
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      content: Text("Error: Try agine "),
+                      content: Text(
+                          "${AppLocalizations.of(context)!.error}: ${AppLocalizations.of(context)!.tryagain} "),
                     ));
                   }
                 },
@@ -250,23 +250,23 @@ class _add_pro extends State<add_pro> {
                         ],
                       ),
                       TextFormField(
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                           icon: const Icon(Icons.label_important),
-                          hintText: 'Enter Product name',
+                          hintText: AppLocalizations.of(context)!.productname,
                         ),
                         controller: myController1,
                         keyboardType: TextInputType.name,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Product name is required';
+                            return AppLocalizations.of(context)!.productnameerr;
                           }
                           return null;
                         },
                       ),
                       TextFormField(
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                           icon: const Icon(Icons.shopping_bag_outlined),
-                          hintText: 'Enter Quantity',
+                          hintText: AppLocalizations.of(context)!.quantity,
                         ),
                         controller: myController2,
                         keyboardType: TextInputType.number,
@@ -278,9 +278,9 @@ class _add_pro extends State<add_pro> {
                         },
                       ),
                       TextFormField(
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                           icon: const Icon(Icons.monetization_on_outlined),
-                          hintText: 'Enter Price',
+                          hintText: AppLocalizations.of(context)!.price,
                         ),
                         controller: myController3,
                         keyboardType: TextInputType.number,
@@ -289,8 +289,8 @@ class _add_pro extends State<add_pro> {
                         },
                       ),
                       DateTimeFormField(
-                        decoration: const InputDecoration(
-                          hintText: "Expired date",
+                        decoration: InputDecoration(
+                          hintText: AppLocalizations.of(context)!.expireddate,
                           hintStyle: TextStyle(color: Colors.black45),
                           errorStyle: TextStyle(color: Colors.redAccent),
                           icon: Icon(Icons.event_note),
@@ -300,9 +300,11 @@ class _add_pro extends State<add_pro> {
                         lastDate: DateTime(DateTime.now().year + 150),
                         validator: (e) {
                           if (e == null) {
-                            return 'Expired date  is required ';
+                            return AppLocalizations.of(context)!
+                                .expireddateerrone;
                           } else if ((e) == DateTime.now()) {
-                            return 'This date is Expired ';
+                            return AppLocalizations.of(context)!
+                                .expireddateerrtwo;
                           }
                           return null;
                         },
@@ -312,9 +314,9 @@ class _add_pro extends State<add_pro> {
                       ),
                       DropdownButtonFormField<String>(
                           value: dropdownValue,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             icon: const Icon(Icons.category_outlined),
-                            hintText: 'Enter Quntity',
+                            hintText: AppLocalizations.of(context)!.category,
                           ),
                           icon: const Icon(Icons.arrow_drop_down_sharp),
                           elevation: 16,
@@ -324,8 +326,9 @@ class _add_pro extends State<add_pro> {
                               dropdownValue = newValue!;
                             });
                           },
-                          validator: (value) =>
-                              value == null ? "Category is required" : null,
+                          validator: (value) => value == null
+                              ? AppLocalizations.of(context)!.categoryerr
+                              : null,
                           items:
                               k.map<DropdownMenuItem<String>>((String value) {
                             return DropdownMenuItem<String>(

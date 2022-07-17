@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:tlr/LocaleProvider.dart';
 import 'package:tlr/db/Vargloba.dart';
 import 'package:tlr/db/database.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tlr/l10n/L10n.dart';
 
 class Interface extends StatefulWidget {
   Interface({Key? key}) : super(key: key);
@@ -210,127 +214,138 @@ class _InterfaceState extends State<Interface> {
   String dropdownValue3 = '10';
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Interface'),
-        actions: [
-          IconButton(
-              onPressed: () async {
-                try {
-                  await DatabaseTLR.inst.updateStyle(your_style!);
-                  Navigator.of(context).pop();
-                } catch (e) {
-                  Navigator.of(context).pop();
-                  showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                            title: const Text(
-                          "ERR: close application and open it agine",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500),
-                        ));
+    return Consumer<LocaleProvider>(builder: (context, provider, snapshot) {
+      var lang = provider.locale ?? Localizations.localeOf(context);
+      return Scaffold(
+        appBar: AppBar(
+          title: Text(AppLocalizations.of(context)!.interface),
+          actions: [
+            IconButton(
+                onPressed: () async {
+                  try {
+                    await DatabaseTLR.inst.updateStyle(your_style!);
+                    if (your_style!.Languge == "Arabe") {
+                      provider.setLocale(L10n.all_locale[2]);
+                    } else if (your_style!.Languge == "English") {
+                      provider.setLocale(L10n.all_locale[0]);
+                    } else if (your_style!.Languge == "Franch") {
+                      provider.setLocale(L10n.all_locale[1]);
+                    }
+                    Navigator.of(context).pop();
+                  } catch (e) {
+                    Navigator.of(context).pop();
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                              title: Text(
+                            AppLocalizations.of(context)!.messageerr,
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500),
+                          ));
+                        });
+                  }
+                },
+                icon: Icon(Icons.save))
+          ],
+        ),
+        body: Column(
+          children: [
+            Row(
+              children: [
+                Text(
+                  "\t ${AppLocalizations.of(context)!.languge} ",
+                  style: TextStyle(fontSize: 20),
+                ),
+                Spacer(),
+                DropdownButton<String>(
+                    value: your_style!.Languge,
+                    icon: const Icon(Icons.arrow_drop_down_sharp),
+                    elevation: 16,
+                    style: const TextStyle(color: Colors.blue),
+                    underline: Container(
+                      height: 2,
+                      color: Colors.blueAccent,
+                    ),
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        your_style!.Languge = newValue!;
                       });
-                }
-              },
-              icon: Icon(Icons.save))
-        ],
-      ),
-      body: Column(
-        children: [
-          Row(
-            children: [
-              Text(
-                "\t Languge ",
-                style: TextStyle(fontSize: 20),
-              ),
-              Spacer(),
-              DropdownButton<String>(
-                  value: your_style!.Languge,
-                  icon: const Icon(Icons.arrow_drop_down_sharp),
-                  elevation: 16,
-                  style: const TextStyle(color: Colors.blue),
-                  underline: Container(
-                    height: 2,
-                    color: Colors.blueAccent,
-                  ),
-                  onChanged: (String? newValue) {
-                    setState(() {
-                      your_style!.Languge = newValue!;
-                    });
-                  },
-                  items: <String>['English', 'Franch', 'Arabe']
-                      .map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList())
-            ],
-          ),
-          Row(
-            children: [
-              Text(
-                "\t FontSize ",
-                style: TextStyle(fontSize: 20),
-              ),
-              Spacer(),
-              DropdownButton<String>(
-                  value: your_style!.FontSize.toString(),
-                  icon: const Icon(Icons.arrow_drop_down_sharp),
-                  elevation: 16,
-                  style: const TextStyle(color: Colors.blue),
-                  underline: Container(
-                    height: 2,
-                    color: Colors.blueAccent,
-                  ),
-                  onChanged: (String? newValue) {
-                    setState(() {
-                      your_style!.FontSize = int.parse(newValue!);
-                    });
-                  },
-                  items: fontsize.map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList())
-            ],
-          ),
-          Row(
-            children: [
-              Text(
-                "\t FontFamily ",
-                style: TextStyle(fontSize: 20),
-              ),
-              Spacer(),
-              DropdownButton<String>(
-                  value: your_style!.FontFamily,
-                  icon: const Icon(Icons.arrow_drop_down_sharp),
-                  elevation: 16,
-                  style: const TextStyle(color: Colors.blue),
-                  underline: Container(
-                    height: 2,
-                    color: Colors.blueAccent,
-                  ),
-                  onChanged: (String? newValue) {
-                    setState(() {
-                      your_style!.FontFamily = newValue!;
-                    });
-                  },
-                  items:
-                      fontFamily.map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList())
-            ],
-          ),
-        ],
-      ),
-    );
+                    },
+                    items: <String>['English', 'Franch', 'Arabe']
+                        .map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList())
+              ],
+            ),
+            Row(
+              children: [
+                Text(
+                  "\t ${AppLocalizations.of(context)!.fontsize} ",
+                  style: TextStyle(fontSize: 20),
+                ),
+                Spacer(),
+                DropdownButton<String>(
+                    value: your_style!.FontSize.toString(),
+                    icon: const Icon(Icons.arrow_drop_down_sharp),
+                    elevation: 16,
+                    style: const TextStyle(color: Colors.blue),
+                    underline: Container(
+                      height: 2,
+                      color: Colors.blueAccent,
+                    ),
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        your_style!.FontSize = int.parse(newValue!);
+                      });
+                    },
+                    items:
+                        fontsize.map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList())
+              ],
+            ),
+            Row(
+              children: [
+                Text(
+                  "\t ${AppLocalizations.of(context)!.fontFamily} ",
+                  style: TextStyle(fontSize: 20),
+                ),
+                Spacer(),
+                DropdownButton<String>(
+                    value: your_style!.FontFamily,
+                    icon: const Icon(Icons.arrow_drop_down_sharp),
+                    elevation: 16,
+                    style: const TextStyle(color: Colors.blue),
+                    underline: Container(
+                      height: 2,
+                      color: Colors.blueAccent,
+                    ),
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        your_style!.FontFamily = newValue!;
+                      });
+                    },
+                    items: fontFamily
+                        .map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList())
+              ],
+            ),
+          ],
+        ),
+      );
+    });
   }
 }

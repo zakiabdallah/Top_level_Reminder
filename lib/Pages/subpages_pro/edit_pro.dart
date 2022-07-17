@@ -10,7 +10,7 @@ import 'package:tlr/Pages/category.dart';
 import 'package:tlr/Pages/subpages_pro/detail_pro.dart';
 import 'package:tlr/db/Vargloba.dart';
 import 'dart:io';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:tlr/db/database.dart';
 
 class edit_pro extends StatefulWidget {
@@ -153,7 +153,7 @@ class _edit_pro extends State<edit_pro> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text('Edit Product'),
+          title: Text(AppLocalizations.of(context)!.editProduct),
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () {
@@ -189,7 +189,7 @@ class _edit_pro extends State<edit_pro> {
                       Data_createdTime: DateTime.now(),
                       Data_LastModification: DateTime.now()));
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text("Done "),
+                    content: Text(AppLocalizations.of(context)!.done),
                   ));
                 } else if (_formKey.currentState!.validate()) {
                   await DatabaseTLR.inst.updateProducts(Product(
@@ -207,11 +207,12 @@ class _edit_pro extends State<edit_pro> {
                       Data_LastModification: DateTime.now()));
 
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text("Done "),
+                    content: Text(AppLocalizations.of(context)!.done),
                   ));
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text("Error: Try agine "),
+                    content: Text(
+                        "${AppLocalizations.of(context)!.error}: ${AppLocalizations.of(context)!.tryagain} "),
                   ));
                 }
               },
@@ -252,50 +253,50 @@ class _edit_pro extends State<edit_pro> {
                         ],
                       ),
                       TextFormField(
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                           icon: const Icon(Icons.label_important),
-                          hintText: 'Enter Product name',
+                          hintText: AppLocalizations.of(context)!.productname,
                         ),
                         controller: myController1,
                         keyboardType: TextInputType.name,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Product name is required';
+                            return AppLocalizations.of(context)!.productnameerr;
                           }
                           return null;
                         },
                       ),
                       TextFormField(
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                           icon: const Icon(Icons.shopping_bag_outlined),
-                          hintText: 'Enter Quantity',
+                          hintText: AppLocalizations.of(context)!.quantity,
                         ),
                         controller: myController2,
                         keyboardType: TextInputType.number,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Quantity is required';
+                            return AppLocalizations.of(context)!.quantityerr;
                           }
                           return null;
                         },
                       ),
                       TextFormField(
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                           icon: const Icon(Icons.monetization_on_outlined),
-                          hintText: 'Enter Price',
+                          hintText: AppLocalizations.of(context)!.price,
                         ),
                         controller: myController3,
                         keyboardType: TextInputType.number,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Price is required';
+                            return AppLocalizations.of(context)!.priceerr;
                           }
                           return null;
                         },
                       ),
                       DateTimeFormField(
-                        decoration: const InputDecoration(
-                          hintText: "Expired date",
+                        decoration: InputDecoration(
+                          hintText: AppLocalizations.of(context)!.expireddate,
                           hintStyle: TextStyle(color: Colors.black45),
                           errorStyle: TextStyle(color: Colors.redAccent),
                           icon: Icon(Icons.event_note),
@@ -305,9 +306,11 @@ class _edit_pro extends State<edit_pro> {
                         lastDate: DateTime(DateTime.now().year + 150),
                         validator: (e) {
                           if (e == null) {
-                            return 'Expired date  is required ';
+                            return AppLocalizations.of(context)!
+                                .expireddateerrone;
                           } else if ((e) == DateTime.now()) {
-                            return 'This date is Expired ';
+                            return AppLocalizations.of(context)!
+                                .expireddateerrtwo;
                           }
                           return null;
                         },
@@ -317,9 +320,9 @@ class _edit_pro extends State<edit_pro> {
                       ),
                       DropdownButtonFormField<String>(
                           value: dropdownValue,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             icon: const Icon(Icons.category_outlined),
-                            hintText: 'Enter Quntity',
+                            hintText: AppLocalizations.of(context)!.category,
                           ),
                           icon: const Icon(Icons.arrow_drop_down_sharp),
                           elevation: 16,
@@ -330,9 +333,9 @@ class _edit_pro extends State<edit_pro> {
                             });
                           },
                           validator: (value) => value == null
-                              ? "Category is required"
+                              ? AppLocalizations.of(context)!.categoryerr
                               : value.toUpperCase() == "Category".toUpperCase()
-                                  ? "Category is required"
+                                  ? AppLocalizations.of(context)!.categoryerr
                                   : null,
                           items:
                               k.map<DropdownMenuItem<String>>((String value) {

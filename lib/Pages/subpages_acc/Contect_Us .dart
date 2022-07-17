@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Contect_us extends StatefulWidget {
   Contect_us({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class _Contect_usState extends State<Contect_us> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Contect_us'),
+          title: Text(AppLocalizations.of(context)!.contectus),
         ),
         body: SingleChildScrollView(
             scrollDirection: Axis.vertical,
@@ -40,7 +41,7 @@ class _Contect_usState extends State<Contect_us> {
                       children: [
                         Icon(Icons.email),
                         Text(
-                          "E-mail : Trl@gmail.com",
+                          "${AppLocalizations.of(context)!.eomail}: Trl@gmail.com",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ],
@@ -49,7 +50,7 @@ class _Contect_usState extends State<Contect_us> {
                       children: [
                         Icon(Icons.phone),
                         Text(
-                          "-Phone Number : 0555669436",
+                          "-${AppLocalizations.of(context)!.phoneNumber} : 0555669436",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ],

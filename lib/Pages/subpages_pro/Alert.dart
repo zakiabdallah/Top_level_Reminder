@@ -6,6 +6,7 @@ import 'package:tlr/Pages/Dashbord.dart';
 import 'package:tlr/Pages/category.dart';
 import 'package:tlr/db/Vargloba.dart';
 import 'package:tlr/db/database.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Alt_pro extends StatefulWidget {
   Alt_pro({
@@ -60,7 +61,7 @@ class _Alt_proState extends State<Alt_pro> {
             backgroundColor: Colors.amber,
             centerTitle: true,
             title: Text(
-              "Product Alert",
+              AppLocalizations.of(context)!.alertproduct,
               style: TextStyle(fontSize: 18),
             ),
             leading: IconButton(
@@ -83,7 +84,7 @@ class _Alt_proState extends State<Alt_pro> {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [Text("No Product")]),
+                    children: [Text(AppLocalizations.of(context)!.noproduct)]),
               ));
   }
 
@@ -93,7 +94,8 @@ class _Alt_proState extends State<Alt_pro> {
       title: Text(pro.Product_name),
       trailing: Text("${pro.price} DA"),
       onTap: () {},
-      subtitle: Text("Exp:${pro.Expiredtime}|Quantity:${pro.qte}"),
+      subtitle: Text(
+          "${AppLocalizations.of(context)!.exp}:${pro.Expiredtime}|${AppLocalizations.of(context)!.quantity}:${pro.qte}"),
     );
   }
 }

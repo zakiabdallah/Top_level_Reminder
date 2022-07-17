@@ -3,6 +3,7 @@ import 'package:tlr/Pages/Dashbord.dart';
 import 'package:tlr/Pages/Register.dart';
 import 'package:tlr/db/Vargloba.dart';
 import 'package:tlr/db/database.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class authscreen extends StatelessWidget {
   @override
@@ -55,7 +56,7 @@ class _LangState extends State<Lang> {
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
         value: dropdownValue,
-        hint: const Text("Category"),
+        hint:  Text("Category"),
         decoration: const InputDecoration(
           icon: Icon(Icons.category_outlined),
         ),
@@ -125,15 +126,15 @@ class _AuthCardState extends State<AuthCard> {
             child: Column(
               children: [
                 TextFormField(
-                  decoration: const InputDecoration(
-                    label: Text('Username'),
+                  decoration:  InputDecoration(
+                    label: Text(AppLocalizations.of(context)!.username),
                     icon: Icon(Icons.person, color: Colors.blueAccent),
                   ),
                   keyboardType: TextInputType.name,
                   controller: UserController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Username is required';
+                      return AppLocalizations.of(context)!.usernameerr;
                     }
                     return null;
                   },
@@ -142,7 +143,7 @@ class _AuthCardState extends State<AuthCard> {
                   keyboardType: TextInputType.text,
                   obscureText: !passwordVisible,
                   decoration: InputDecoration(
-                    label: const Text('Password'),
+                    label:  Text(AppLocalizations.of(context)!.password),
                     icon: const Icon(Icons.security, color: Colors.blueAccent),
                     suffixIcon: IconButton(
                       icon: Icon(
@@ -161,7 +162,7 @@ class _AuthCardState extends State<AuthCard> {
                   controller: passController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Password not correct';
+                      return AppLocalizations.of(context)!.passwordnotcorrect;
                     }
                     return null;
                   },
@@ -181,8 +182,8 @@ class _AuthCardState extends State<AuthCard> {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
-                              title: const Text(
-                                "Username or password is not  correct ",
+                              title:  Text(
+                                AppLocalizations.of(context)!.userandpassworderr,
                                 style: TextStyle(color: Colors.blue),
                               ),
                               actions: [
@@ -190,7 +191,7 @@ class _AuthCardState extends State<AuthCard> {
                                     onPressed: () {
                                       Navigator.of(context).pop();
                                     },
-                                    child: const Text("Ok")),
+                                    child:  Text(AppLocalizations.of(context)!.ok)),
                               ],
                             );
                           });
@@ -294,8 +295,8 @@ class _AuthCardState extends State<AuthCard> {
                         },
                       ),
                       TextButton(
-                        child: const Text(
-                          "Forget Password?",
+                        child:  Text(
+                          AppLocalizations.of(context)!.forgetpassword,
                           style: TextStyle(fontSize: 12),
                         ),
                         onPressed: () {},

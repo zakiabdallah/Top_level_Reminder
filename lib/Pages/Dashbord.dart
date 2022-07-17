@@ -4,14 +4,17 @@ import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
+import 'package:tlr/LocaleProvider.dart';
 import 'package:tlr/Pages/home.dart';
 import 'package:tlr/Pages/account.dart';
-import 'package:tlr/Pages/test.dart';
+import 'package:tlr/Pages/category.dart';
 import 'package:tlr/Pages/product.dart';
 import 'package:tlr/Pages/statstique.dart';
 import 'package:tlr/db/Vargloba.dart';
 import 'package:tlr/db/database.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({
@@ -117,13 +120,21 @@ class _MyHomePageState extends State<MyHomePage> {
           ? _pageOptions[selectedPage]
           : Center(child: circleLoading()),
       bottomNavigationBar: ConvexAppBar(
+        height: 65,
         style: TabStyle.reactCircle,
         items: [
-          TabItem(icon: Icons.category, title: "Categories"),
-          TabItem(icon: Icons.dashboard, title: "Product"),
-          TabItem(icon: Icons.home, title: "Home"),
-          TabItem(icon: Icons.bar_chart, title: "Statistique"),
-          TabItem(icon: Icons.person, title: "Account"),
+          TabItem(
+              icon: Icons.category,
+              title: AppLocalizations.of(context)!.categories),
+          TabItem(
+              icon: Icons.dashboard,
+              title: AppLocalizations.of(context)!.products),
+          TabItem(icon: Icons.home, title: AppLocalizations.of(context)!.home),
+          TabItem(
+              icon: Icons.bar_chart,
+              title: AppLocalizations.of(context)!.statistic),
+          TabItem(
+              icon: Icons.person, title: AppLocalizations.of(context)!.account),
         ],
         initialActiveIndex: 2,
         onTap: (int i) {

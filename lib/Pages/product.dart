@@ -7,6 +7,7 @@ import 'package:tlr/Pages/subpages_pro/add_pro.dart';
 import 'package:tlr/Pages/subpages_pro/detail_pro.dart';
 import 'package:tlr/Pages/subpages_pro/expired.dart';
 import 'package:tlr/db/Vargloba.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProductSFW extends StatefulWidget {
   List<Product> pro;
@@ -23,13 +24,15 @@ class _ProductSFWState extends State<ProductSFW> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    DisplayProduct = ListView.builder(
-        itemCount: profiltered.length * 2,
-        itemBuilder: (BuildContext context, int i) {
-          if (i.isOdd) return Divider();
-          int index = i ~/ 2;
-          return buildcat(profiltered[index], context, index);
-        });
+    if (mounted) {
+      DisplayProduct = ListView.builder(
+          itemCount: profiltered.length * 2,
+          itemBuilder: (BuildContext context, int i) {
+            if (i.isOdd) return Divider();
+            int index = i ~/ 2;
+            return buildcat(profiltered[index], context, index);
+          });
+    }
   }
 
   @override
@@ -81,13 +84,14 @@ class _ProductSFWState extends State<ProductSFW> {
                           return ListTile(
                             leading: Icon(Icons.dashboard),
                             title: Text(p[i].Product_name),
-                            trailing: Text("${p[i].price} DA"),
+                            trailing: Text(
+                                "${p[i].price} ${AppLocalizations.of(context)!.da}"),
                             onTap: () {
                               Navigator.of(context).push(MaterialPageRoute(
                                   builder: (context) => detail_pro(d: p[i])));
                             },
                             subtitle: Text(
-                                "Exp:${p[i].Expiredtime}|Quantity:${p[i].qte}"),
+                                "${AppLocalizations.of(context)!.exp}:${p[i].Expiredtime}|${AppLocalizations.of(context)!.quantity}:${p[i].qte}"),
                           );
                         });
                   });
@@ -102,7 +106,7 @@ class _ProductSFWState extends State<ProductSFW> {
                     fontWeight: FontWeight.w600,
                     fontSize: 15),
                 prefixIcon: Icon(Icons.search, color: Colors.blueAccent),
-                hintText: 'Search ',
+                hintText: AppLocalizations.of(context)!.search,
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide.none),
@@ -130,7 +134,8 @@ class _ProductSFWState extends State<ProductSFW> {
                     children: [
                       cat.length > 0
                           ? TextButton.icon(
-                              label: Text("Create Product"),
+                              label: Text(
+                                  AppLocalizations.of(context)!.createProduct),
                               onPressed: () {
                                 Navigator.of(context).pushReplacement(
                                     MaterialPageRoute(
@@ -139,7 +144,8 @@ class _ProductSFWState extends State<ProductSFW> {
                               icon: Icon(Icons.add),
                             )
                           : TextButton.icon(
-                              label: Text("Create Category"),
+                              label: Text(
+                                  AppLocalizations.of(context)!.createcategory),
                               onPressed: () {
                                 Navigator.of(context).pushReplacement(
                                     MaterialPageRoute(
@@ -189,7 +195,7 @@ class _ProductSFWState extends State<ProductSFW> {
                                           builder: (context) => Alt_pro()));
                                 },
                                 child: Text(
-                                  'Alert product',
+                                  AppLocalizations.of(context)!.alertproduct,
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
@@ -226,7 +232,7 @@ class _ProductSFWState extends State<ProductSFW> {
                                           builder: (context) => Exp_pro()));
                                 },
                                 child: Text(
-                                  'Expired product',
+                                  AppLocalizations.of(context)!.expiredproduct,
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
@@ -245,12 +251,14 @@ class _ProductSFWState extends State<ProductSFW> {
               ListTile(
                 leading: Icon(Icons.dashboard),
                 title: Text(pro.Product_name),
-                trailing: Text("${pro.price} DA"),
+                trailing:
+                    Text("${pro.price} ${AppLocalizations.of(context)!.da}"),
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => detail_pro(d: pro)));
                 },
-                subtitle: Text("Exp:${pro.Expiredtime}|Quantity:${pro.qte}"),
+                subtitle: Text(
+                    "${AppLocalizations.of(context)!.exp}:${pro.Expiredtime}|${AppLocalizations.of(context)!.quantity}:${pro.qte}"),
               )
             ],
           )
@@ -262,7 +270,8 @@ class _ProductSFWState extends State<ProductSFW> {
               Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => detail_pro(d: pro)));
             },
-            subtitle: Text("Exp:${pro.Expiredtime}|Quantity:${pro.qte}"),
+            subtitle: Text(
+                "${AppLocalizations.of(context)!.exp}:${pro.Expiredtime}|${AppLocalizations.of(context)!.quantity}:${pro.qte}"),
           );
   }
 }

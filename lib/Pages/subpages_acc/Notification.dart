@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tlr/db/Vargloba.dart';
 import 'package:tlr/db/database.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NotificationPage extends StatefulWidget {
   NotificationPage({Key? key}) : super(key: key);
@@ -48,7 +49,7 @@ class _NotificationPageState extends State<NotificationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Notification'),
+        title: Text(AppLocalizations.of(context)!.notification),
         actions: [
           IconButton(
               onPressed: () async {
@@ -61,8 +62,8 @@ class _NotificationPageState extends State<NotificationPage> {
                       context: context,
                       builder: (BuildContext context) {
                         return AlertDialog(
-                            title: const Text(
-                          "ERR: close application and open it agine",
+                            title: Text(
+                          AppLocalizations.of(context)!.messageerr,
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: 16,
@@ -79,12 +80,13 @@ class _NotificationPageState extends State<NotificationPage> {
           Row(
             children: [
               Text(
-                "\t Notification Alart ",
+                "\t ${AppLocalizations.of(context)!.notificationAlart}",
                 style: TextStyle(fontSize: 20),
               ),
               Spacer(),
               DropdownButton<String>(
-                  value: your_style!.NotificationAlert.toString() + " Days",
+                  value: your_style!.NotificationAlert.toString() +
+                      " ${AppLocalizations.of(context)!.days}",
                   icon: const Icon(Icons.arrow_drop_down_sharp),
                   elevation: 16,
                   style: const TextStyle(color: Colors.blue),
@@ -98,11 +100,11 @@ class _NotificationPageState extends State<NotificationPage> {
                     });
                   },
                   items: <String>[
-                    '3 Days',
-                    '4 Days',
-                    '5 Days',
-                    '6 Days',
-                    '7 Days'
+                    '3 ${AppLocalizations.of(context)!.days}',
+                    '4 ${AppLocalizations.of(context)!.days}',
+                    '5 ${AppLocalizations.of(context)!.days}',
+                    '6 ${AppLocalizations.of(context)!.days}',
+                    '7 ${AppLocalizations.of(context)!.days}'
                   ].map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
@@ -114,7 +116,7 @@ class _NotificationPageState extends State<NotificationPage> {
           Row(
             children: [
               Text(
-                "\t Notification sound ",
+                "\t ${AppLocalizations.of(context)!.notificationsound} ",
                 style: TextStyle(fontSize: 20),
               ),
               Spacer(),

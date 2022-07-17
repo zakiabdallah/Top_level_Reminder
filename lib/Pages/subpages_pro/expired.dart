@@ -6,6 +6,7 @@ import 'package:tlr/Pages/Dashbord.dart';
 import 'package:tlr/Pages/category.dart';
 import 'package:tlr/db/Vargloba.dart';
 import 'package:tlr/db/database.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Exp_pro extends StatefulWidget {
   Exp_pro({
@@ -59,7 +60,7 @@ class _Exp_proState extends State<Exp_pro> {
             backgroundColor: Colors.redAccent,
             centerTitle: true,
             title: Text(
-              "Expired Product",
+              AppLocalizations.of(context)!.expiredproduct,
               style: TextStyle(fontSize: 18),
             ),
             leading: IconButton(
@@ -82,7 +83,7 @@ class _Exp_proState extends State<Exp_pro> {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [Text("No Product")]),
+                    children: [Text(AppLocalizations.of(context)!.noproduct)]),
               ));
   }
 
@@ -90,9 +91,10 @@ class _Exp_proState extends State<Exp_pro> {
     return ListTile(
       leading: Icon(Icons.category_outlined),
       title: Text(pro.Product_name),
-      trailing: Text("${pro.price} DA"),
+      trailing: Text("${pro.price} ${AppLocalizations.of(context)!.da}"),
       onTap: () {},
-      subtitle: Text("Exp:${pro.Expiredtime}|Quantity:${pro.qte}"),
+      subtitle: Text(
+          "${AppLocalizations.of(context)!.exp}:${pro.Expiredtime}|${AppLocalizations.of(context)!.quantity}:${pro.qte}"),
     );
   }
 }

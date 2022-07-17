@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:tlr/Pages/Home.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class statstique extends StatelessWidget {
   late List<PieData> _piedata = [
@@ -18,7 +19,7 @@ class statstique extends StatelessWidget {
         children: <Widget>[
           SfCircularChart(
             title: ChartTitle(
-              text: 'Your best sales',
+              text: AppLocalizations.of(context)!.yourbestsales,
             ),
             legend: Legend(isVisible: true),
             series: <CircularSeries>[
@@ -30,14 +31,16 @@ class statstique extends StatelessWidget {
             ],
           ),
           SfCartesianChart(
-            title: ChartTitle(text: 'Your stock'),
+            title: ChartTitle(text: AppLocalizations.of(context)!.yourstock),
             primaryXAxis: CategoryAxis(
               majorGridLines: const MajorGridLines(width: 0),
-              title: AxisTitle(text: 'Categories on stock'),
+              title: AxisTitle(
+                  text: AppLocalizations.of(context)!.categoriesonstock),
             ),
             primaryYAxis: NumericAxis(
                 labelFormat: '{value}',
-                title: AxisTitle(text: 'Product on stock'),
+                title: AxisTitle(
+                    text: AppLocalizations.of(context)!.productonstock),
                 majorGridLines: const MajorGridLines(width: 0),
                 majorTickLines: const MajorTickLines(size: 0)),
             series: <ChartSeries<ChartSampleData, String>>[
@@ -51,23 +54,23 @@ class statstique extends StatelessWidget {
                     labelAlignment: ChartDataLabelAlignment.middle),
                 dataSource: <ChartSampleData>[
                   ChartSampleData(
-                      x: 'oils',
+                      x: AppLocalizations.of(context)!.oils,
                       y: 1241,
                       pointColor: const Color.fromARGB(53, 92, 125, 1)),
                   ChartSampleData(
-                      x: 'Sugars',
+                      x: AppLocalizations.of(context)!.sugars,
                       y: 1332,
                       pointColor: const Color.fromARGB(192, 108, 132, 1)),
                   ChartSampleData(
-                      x: 'Cocoa ',
+                      x: AppLocalizations.of(context)!.cocoa,
                       y: 918,
                       pointColor: const Color.fromARGB(246, 114, 128, 1)),
                   ChartSampleData(
-                      x: 'cereals',
+                      x: AppLocalizations.of(context)!.cereals,
                       y: 456,
                       pointColor: const Color.fromARGB(248, 177, 149, 1)),
                   ChartSampleData(
-                      x: 'Beverages',
+                      x: AppLocalizations.of(context)!.beverages,
                       y: 529,
                       pointColor: const Color.fromARGB(116, 180, 155, 1)),
                 ],
