@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("h");
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: "/",
